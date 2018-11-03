@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">cardviewexample</string>
+    <string name="card_description_test">Използва се за сигнализиране на крива, в която не е осигурено разстоянието за видимост на еди си какво</string>
+</resources>
