@@ -1,12 +1,15 @@
 package com.example.android.cardviewexample;
 
+import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mCardDescription;
     boolean isEnable = false;
     private ImageButton ButtonStar;
+    private Button btnOpen;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +32,14 @@ public class MainActivity extends AppCompatActivity {
         mCardTitle = (TextView) findViewById(R.id.cardTitle);
         mCardImage = (ImageView) findViewById(R.id.cardImage);
         ButtonStar = (ImageButton) findViewById(R.id.heart);
+        btnOpen = (Button) findViewById(R.id.btnOpen);
 
         //creates and image resource and sets it to the ImageView
         int imageResource = getResources().getIdentifier("@drawable/icon", null, this.getPackageName());
         mCardImage.setImageResource(imageResource);
 
         //set the title to the text view
-        mCardTitle.setText("А1:Опасен завой на дясно");
+        mCardTitle.setText("В1: Забранено е влизането на пътни превозни средства");
 
         //set the description to the text view
         mCardDescription.setText(getString(R.string.card_description_test));
@@ -52,5 +58,15 @@ public class MainActivity extends AppCompatActivity {
                 isEnable = !isEnable;
             }
         });
+
+        //onClickListenet for the button, showing a toast message
+        btnOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getBaseContext(), "TESTING BUTTON CLICK 1",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
+
 }
